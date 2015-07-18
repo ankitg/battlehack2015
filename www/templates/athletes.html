@@ -1,0 +1,9 @@
+<ion-view view-title="Athletes">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="athlete in athletes" href="#/app/athletes/{{athlete.id}}">
+        {{athlete.title}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
