@@ -43,14 +43,14 @@ angular.module('starter.controllers', [])
 
 .controller('AthletesCtrl', function($scope) {
   $scope.athletes = [
-    { title: 'HONDERICH Rachel', id: 1 },
-    { title: 'VON MARTELS Christopher', id: 2 },
-    { title: 'CONNELLY Austin', id: 3 },
-    { title: 'BALFOUR Jevon', id: 4 },
-    { title: 'GIRKE Nikola', id: 5 },
-    { title: 'HAYWARD Ben', id: 6 }
+    { title: 'HONDERICH Rachel', id: 1, city: "Toronto, Ontario", youtube:"" },
+    { title: 'VON MARTELS Christopher', id: 2, city: "Ridgetown, Ontario", youtube:""},
+    { title: 'CONNELLY Austin', id: 3, city: "Irving, Tex", youtube:""  },
+    { title: 'BALFOUR Jevon', id: 4, city: "Scarborough, Ontario", youtube:""  },
+    { title: 'GIRKE Nikola', id: 5, city: "Vancouver, British Columbia", youtube:""  },
+    { title: 'HAYWARD Ben', id: 6, city: "Edmonton, Alberta", youtube:"https://www.youtube.com/embed/uHf953ZlQ7w"  }
   ];
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('AthleteCtrl', function($scope, $stateParams) {
 });

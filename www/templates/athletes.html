@@ -1,8 +1,12 @@
 <ion-view view-title="Athletes">
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="athlete in athletes" href="#/app/athletes/{{athlete.id}}">
-        {{athlete.title}}
+      <ion-item ng-repeat="athlete in athletes">
+        <a class="item item-thumbnail-left" href="#/app/athletes/{{athlete.id}}">
+		  <img src="img/ionic.png">
+		  <h2>{{athlete.title}}</h2>
+		  <p>{{athlete.city}}</p>
+		</a>
       </ion-item>
     </ion-list>
   </ion-content>

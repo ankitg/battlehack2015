@@ -64,7 +64,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     views: {
       'menuContent': {
         templateUrl: 'templates/athlete.html',
-        controller: 'PlaylistCtrl'
+        controller: 'AthleteCtrl'
       }
     }
   });
