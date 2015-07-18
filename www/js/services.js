@@ -38,4 +38,22 @@ angular.module('services', [])
 			}
 		}
 	};
+})
+
+.service('athleteService', function() {
+  var athlete = {};
+
+  var selectAthlete = function(selectedAthlete) {
+      athlete = selectedAthlete;
+  };
+
+  var getSelectedAthlete = function(){
+      return athlete;
+  };
+
+  return {
+    selectAthlete: selectAthlete,
+    getSelectedAthlete: getSelectedAthlete
+  };
+
 });

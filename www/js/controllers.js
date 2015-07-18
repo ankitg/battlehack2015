@@ -52,7 +52,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('AthletesCtrl', function($scope) {
+.controller('AthletesCtrl', function($scope, athleteService) {
   $scope.athletes = [
     { title: 'HONDERICH Rachel', id: 1, city: "Toronto, Ontario", youtube:"" },
     { title: 'VON MARTELS Christopher', id: 2, city: "Ridgetown, Ontario", youtube:""},
@@ -61,7 +61,12 @@ angular.module('starter.controllers', [])
     { title: 'GIRKE Nikola', id: 5, city: "Vancouver, British Columbia", youtube:""  },
     { title: 'HAYWARD Ben', id: 6, city: "Edmonton, Alberta", youtube:"https://www.youtube.com/embed/uHf953ZlQ7w"  }
   ];
+
+  $scope.selectAthlete = function(athlete) {
+    athleteService.selectAthlete(athlete);
+  }
 })
 
-.controller('AthleteCtrl', function($scope, $stateParams) {
+.controller('AthleteCtrl', function($scope, $stateParams, athleteService) {
+  console.log(JSON.stringify(athleteService.getSelectedAthlete()));
 });
