@@ -1,9 +1,10 @@
 angular.module('services', [])
 
-.factory('API', function($http) {
+.factory('API', function($http, $q) {
+	var baseurl = "http://5fe31957.ngrok.com";
 	return {
 		authenticate: function(loginData) {
-			return $http.post('http://5fe31957.ngrok.com/auth/local', { "email":loginData.email, "password":loginData.password })
+			return $http.post(baseurl + '/auth/local', { "email":loginData.email, "password":loginData.password })
 			.then( function (response) {
 				if(response.status === 200) {
 					var authHeader = {headers:  {
@@ -12,7 +13,7 @@ angular.module('services', [])
 					};
 					window.localStorage.setItem("authHeader", JSON.stringify(authHeader));
 
-					return $http.get('http://5fe31957.ngrok.com/api/users/me',authHeader)
+					return $http.get(baseurl + '/api/users/me',authHeader)
 					.then(function (response) {
 						if(response.status === 200) {
 							window.localStorage.setItem("userMe", JSON.stringify(response.data));
@@ -24,6 +25,21 @@ angular.module('services', [])
 				// 	console.log(JSON.stringify(response));
 				// }
 			});
+		},
+
+		getAthletes: function() {
+			var deferred = $q.defer();
+			$http({
+		        method: 'GET',
+		        url: baseurl + '/api/users/athletes',
+		        cache: true
+		    }).success(function (data) {
+		        deferred.resolve(data);
+		    }).error(function (msg) {
+		        deferred.reject(msg);
+		    });
+
+			return deferred.promise;
 		},
 
 		me: function() {

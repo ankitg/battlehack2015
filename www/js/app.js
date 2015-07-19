@@ -70,7 +70,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'services', 'youtube-
       views: {
         'menuContent': {
           templateUrl: 'templates/athletes.html',
-          controller: 'AthletesCtrl'
+          controller: 'AthletesCtrl',
+          resolve: {
+            athletes: function(API) {
+              return API.getAthletes();
+            }
+          }
         }
       }
     })
