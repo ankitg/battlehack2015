@@ -21,3 +21,27 @@
   height: 100%;
   border: 0;
 }
+
+.BioMedalSilver{
+	background-image: url("/img/2.png");
+}
+
+.BioMedalBronze{
+	background-image: url("/img/3.png");
+}
+
+.BioMedalGold{
+	background-image: url("/img/1.png");
+}
+
+.BioMedalGold,
+.BioMedalSilver,
+.BioMedalBronze{
+	width:30px;
+	height: 32px;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 8px;
+	text-shadow: 0 0 0.2em #FFF,  0 0 0.3em #FFF,  0 0 0.2em #FFF;
+}
