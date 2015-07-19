@@ -4,9 +4,9 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('LoginCtrl', function($scope, API, $state, ionicToast, $pusher) {
+.controller('LoginCtrl', function($scope, API, $state, $pusher) {
 
-  ionicToast.show('Hello KSo.', 'bottom', false, 2500);
+  
 
   // Form data for the login modal
   $scope.loginData = {};
@@ -21,7 +21,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('AthletesCtrl', function(athletes, $scope, athleteService, $pusher, API) {
+.controller('AthletesCtrl', function(athletes, $scope, athleteService, $pusher, API, ionicToast) {
   $scope.athletes = athletes;
 
 
@@ -33,11 +33,15 @@ angular.module('starter.controllers', [])
 
     console.log(API.me());
     console.log(window.localStorage.getItem('userMe'));
-    var channel = pusher.subscribe("HONDERICH_Rachel");
-    channel.bind('sponsor_event', function(data) {
-      console.log(data.message);
-      $scope.messages.push(data.message);
-    });
+
+    if(API.me().merchant_id !== undefined) {
+    var channel = pusher.subscribe(API.me().merchant_id);
+      channel.bind('sponsor_event', function(data) {
+        console.log(data.message);
+        // $scope.messages.push(data.message);
+        ionicToast.show(data.message, 'bottom', false, 2500);
+      });
+    }
 
   $scope.selectAthlete = function(athlete) {
     athleteService.selectAthlete(athlete);
@@ -53,13 +57,13 @@ angular.module('starter.controllers', [])
     $scope.messages = [];
   }    
 
-  console.log(API.me());
-  console.log(window.localStorage.getItem('userMe'));
-  var channel = pusher.subscribe(API.me().merchantId);
-  channel.bind('sponsor_event', function(data) {
-    console.log(data.message);
-    $scope.messages.push(data.message);
-  });
+  // console.log(API.me());
+  // console.log(window.localStorage.getItem('userMe'));
+  // var channel = pusher.subscribe(API.me().merchant_id);
+  // channel.bind('sponsor_event', function(data) {
+  //   console.log(data.message);
+  //   $scope.messages.push(data.message);
+  // });
 
   API.getMerchantData($scope.athlete.merchant_id).then(function(transactions) {
     transactions.forEach(function(transaction) {
