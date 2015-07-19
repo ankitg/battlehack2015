@@ -47,6 +47,18 @@ exports.show = function (req, res, next) {
   });
 };
 
+exports.getAthletes = function(req, res, next) {
+  User.find({
+      'user_type': 'Athlete'
+    })
+    .sort({'feature_score':'desc'})
+    .exec(function (err, users) {
+    if(err) { return handleError(res, err); }
+    if(!users) { return res.send(404); }
+    return res.json(users);
+  });
+};
+
 /**
  * Deletes a user
  * restriction: 'admin'

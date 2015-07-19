@@ -18,7 +18,17 @@ var UserSchema = new Schema({
   facebook: {},
   twitter: {},
   google: {},
-  github: {}
+  github: {},
+  user_type: String,
+  profile_pic: String,
+  description: String,
+  events: [Schema.Types.Mixed],
+  sport_type: String,
+  merchant_id: String,
+  media: [Schema.Types.Mixed],
+  campaigns: [Schema.Types.ObjectId],
+  feature_score: String,
+  logo: String
 });
 
 /**

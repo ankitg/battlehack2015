@@ -31,6 +31,9 @@ exports.create = function(req, res) {
 
 // Send a message
 exports.send = function(req, res) {
+  var channel = req.params.merchantId;
+  // var status = req.params.status;
+
   var pusher = new Pusher({
     appId: '130201',
     key: '2b63159ac74d5e9407db',
@@ -39,8 +42,8 @@ exports.send = function(req, res) {
   });
   pusher.port = 443;
 
-  pusher.trigger('test_channel', 'my_event', {
-    "message": req.params.message    
+  pusher.trigger(channel, 'sponsor_event', {
+    "message": req.params.message
   });
   return res.send(200);
 }
