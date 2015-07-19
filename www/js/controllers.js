@@ -85,7 +85,7 @@ angular.module('starter.controllers', [])
    media:[{type:"youtube", url:"https://www.youtube.com/embed/g3iPy9MgrVQ"}]},
 
     { name: 'HAYWARD Ben', id: 6, description: "Edmonton, Alberta", provider: "local", email:"",
-     userType:"Athlete", profile_pic: "/img/HAYWARD_Ben.jpg", events:{}, sport_type:"Canoeing_Slalom",
+     userType:"Athlete", profile_pic: "/img/HAYWARD_Ben.jpg", events:{}, sport_type:"Canoeing Slalom",
    media:[{type:"youtube", url:"https://www.youtube.com/embed/uHf953ZlQ7w"}]}
   ];
 
