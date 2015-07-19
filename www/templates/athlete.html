@@ -2,30 +2,50 @@
   <ion-content>
 		<div class="item item-avatar">
 		    <img src=img/{{athlete.sport_type}}.png>
+		    <h2>{{athlete.name}}</h2>
 		    <p>{{athlete.sport_type}}</p>
 		</div>
-		<div class="row">
-		  <div class="col col-center"><h1>{{athlete.name}}</h1></div>
-		  <div class="col col-50"><img ng-src={{athlete.profile_pic}} alt="Logo Image"}}></div>
+
+		<div class="item tabs tabs-secondary tabs-icon-top">
+		    <a class="tab-item" href="#">
+		      <img ng-src="{{sponsors[0].logo}}" class="icon"/>
+		      {{sponsors[0].name}}
+		    </a>
+			<a class="tab-item" href="#">
+		      <img ng-src="{{sponsors[1].logo}}" class="icon"/>
+		      {{sponsors[1].name}}
+		    </a>
+		    <a class="tab-item" href="#">
+		      <img ng-src="{{sponsors[2].logo}}" class="icon"/>
+		      {{sponsors[2].name}}
+		    </a>
 		</div>
-		<div class="row" >
-			 <div class="col col-top">{{athlete.description}}</div>
-		</div>
-		
-		<div class="hero-copy">
+
+		 <div class="padding">
+			 <img ng-src={{athlete.profile_pic}} alt="Profile Image" style="float:left; padding-right:10px"}}>
+			 <p>{{athlete.description}}</p>
+			<br />
+		  	<div class="embed-responsive embed-responsive-16by9">
+				<youtube-video video-url="athlete.media[0].url" class="embed-responsive-item"></youtube-video>
+			</div>
+		 </div>
+
+		<div>
 			<label class="item item-input">
 			  <input type="text" placeholder="AMOUNT" ng-model="amount">
 			</label>
 			<button class="button button-block button-positive" ng-click="pitchin(amount)">
 			  PITCHIN'
 			</button>
-			<div class="embed-responsive embed-responsive-16by9">
-				<youtube-video video-url="athlete.media[0].url" class="embed-responsive-item"></youtube-video>
-			</div>
 		</div>
 
-		<div ng-repeat="sponsor in sponsors">
-			<img ng-src="{{sponsor.logo}}"/>
-		</div>
+<!-- 		<div ng-repeat="sponsor in sponsors" class="item tabs tabs-secondary tabs-icon-top">
+			<a class="tab-item" href="#">
+				<img ng-src="{{sponsor.logo}}" class="icon"/>
+				{{sponsor.name}}
+			</a>
+		</div> -->
+
+
   </ion-content>
 </ion-view>
