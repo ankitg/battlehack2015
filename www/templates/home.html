@@ -3,15 +3,16 @@
 
     <img ng-src="{{me.logo}}" class="full-image"/>
     
-    <h2 class="padding">Sponsored ${{totalSponsored | number:2}}</h2>
+    <h2 class="padding" style="color:#000090">Sponsored ${{totalSponsored | number:2}}</h2>
 	<div class="list" ng-repeat="campaign in me.campaigns">
-		<a class="item item-thumbnail-left" href="#">
+		<a class="item item-thumbnail-left item-icon-right" href="#">
 	      <img ng-src="{{campaign.profile_pic}}">
-	      <h2>${{campaign.amount | number:2}} @ {{campaign.name}}</h2>
+	      <h2>{{campaign.name}}</h2>
 	      <p>{{campaign.date}}</p>
+	      <p class="icon">${{campaign.amount | number:2}}</p>
 	    </a>
     </div>
 
-    <p>{{me}}</p>
+<!--     <p>{{me}}</p> -->
   </ion-content>
 </ion-view>
