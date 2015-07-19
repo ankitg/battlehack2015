@@ -6,7 +6,7 @@ angular.module('starter.controllers', [])
 
 .controller('LoginCtrl', function($scope, API, $state, $pusher) {
 
-  // Form data for the login modal
+  // Form data for login
   $scope.loginData = {};
 
   // Perform the login action when the user submits the login form
@@ -17,6 +17,10 @@ angular.module('starter.controllers', [])
       $state.go('app.athletes');
     });
   };
+})
+
+.controller('HomeCtrl', function($scope, API) {
+  $scope.me = API.me();
 })
 
 .controller('AthletesCtrl', function(athletes, $scope, athleteService, $pusher, API, ionicToast) {

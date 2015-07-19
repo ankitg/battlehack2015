@@ -63,7 +63,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'services', 'youtube-
     url: '/home',
     views: {
       'menuContent': {
-        templateUrl: 'templates/home.html'
+        templateUrl: 'templates/home.html',
+        controller: 'HomeCtrl'
       }
     }
   })
