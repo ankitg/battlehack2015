@@ -3,9 +3,9 @@
  		<div class="row responsive-lg ion-list">
 
 	      <div class="col col-80 col-offset-10">
-			<div class="row responsive-md" ng-repeat="athlete in athletes" ng-if="$index % 2 === 0" ng-click="selectAthlete({{athlete}})">
+			<div class="row responsive-md" ng-repeat="athlete in athletes" ng-if="$index % 2 === 0">
 
-	          <div class="col col-50 list card">
+	          <div class="col col-50 list card" ng-click="selectAthlete({{athlete}})">
 	            <ion-item class="item item-avatar item-icon-right">
 				    <img ng-src="{{athlete.profile_pic}}" width="100%">
 				    <h2>{{athlete.name}}</h2>
@@ -25,7 +25,7 @@
 				</a>
 	          </div>
 
-	          <div class="col col-50" ng-show="athletes[$index + 1]">
+	          <div class="col col-50 list card" ng-show="athletes[$index + 1]" ng-click="selectAthlete({{athletes[$index + 1]}})">
 				<ion-item class="item item-avatar item-icon-right">
 				    <img ng-src="{{athletes[$index + 1].profile_pic}}" width="100%">
 				    <h2>{{athletes[$index + 1].name}}</h2>
@@ -36,12 +36,13 @@
 				<div class="item item-body">
 					<img ng-src="{{athletes[$index + 1].media[1].url}}" width="100%" />
 					<p>{{athletes[$index + 1].description | cut : true : 100}}</p>
-					<a href="#/app/athletes/{{athletes[$index + 1].id}}" style="text-decoration:none">
+				</div>
+
+				<a href="#/app/athletes/{{athletes[$index + 1].id}}" style="text-decoration:none">
 					<button class="button button-block button-positive">
 				  		PITCHIN'
 					</button>
 				</a>
-				</div>
 	          </div>
 
 	        </div>
