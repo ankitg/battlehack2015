@@ -1,16 +1,25 @@
 <ion-view view-title="{{me.name}}">
   <ion-content>
 
+	<div class="card item">
+
     <img ng-src="{{me.logo}}" class="full-image"/>
-    
-    <h2 class="padding" style="color:#000090">Sponsored ${{totalSponsored | number:2}}</h2>
-	<div class="list" ng-repeat="campaign in me.campaigns">
+
+	<div class="row">
+	  <div class="col" style:"height:40px;">
+	  <p style="color:#000090; height:40px; font-size:28px">Sponsored: </p></div>
+	  <div class="col" style:"height:40px;"><p style="color:#000090; height:40px; font-size:28px; float:right">${{totalSponsored | number:2}}</p></div>
+	</div>
+
+	<div class="card list" ng-repeat="campaign in me.campaigns">
 		<a class="item item-thumbnail-left item-icon-right" href="#">
 	      <img ng-src="{{campaign.profile_pic}}">
 	      <h2>{{campaign.name}}</h2>
 	      <p>{{campaign.date}}</p>
 	      <p class="icon">${{campaign.amount | number:2}}</p>
 	    </a>
+    </div>
+
     </div>
 
 <!--     <p>{{me}}</p> -->
