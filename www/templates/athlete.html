@@ -30,13 +30,17 @@
 			</div>
 		 </div>
 		
-		<div>
+		<div>			
 			<label class="item item-input">
 			  <input type="text" placeholder="AMOUNT" ng-model="amount">
 			</label>
 			<button class="button button-block button-positive" ng-click="pitchin(amount)">
 			  PITCHIN'
 			</button>
+			<div class="list padding" ng-repeat="sku in athlete.skus">
+		      <h2>{{sku.key}} <span class="item-note padding-vertical">{{sku.value}}</span></h2>
+		    </div>
+
 		</div>
 
 		<!-- <div ng-repeat="sponsor in sponsors" class="tabs tabs-secondary tabs-icon-top">
