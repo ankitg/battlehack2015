@@ -16,10 +16,11 @@
 				<div class="item item-body">
 					<img ng-src="{{athlete.media[1].url}}" width="100%" />
 					<div class="row">
-					  <div class="col"></div>
-					  <div class="col"><div class="BioMedalGold">1</div></div>
-					  <div class="col"><div class="BioMedalSilver">1</div></div>
-					  <div class="col"><div class="BioMedalBronze">2</div></div>
+					  <div class="col col-12"></div>
+					  <div class="col col-25"><div class="BioMedalGold">1</div></div>
+					  <div class="col col-25"><div class="BioMedalSilver">1</div></div>
+					  <div class="col col-25"><div class="BioMedalBronze">2</div></div>
+					  <div class="col col-12"></div>
 					</div>
 					<p>{{athlete.description | cut : true : 100}}</p>
 				</div>
@@ -42,10 +43,11 @@
 				<div class="item item-body">
 					<img ng-src="{{athletes[$index + 1].media[1].url}}" width="100%" />
 					<div class="row">
-					  <div class="col"></div>
-					  <div class="col"><div class="BioMedalGold">1</div></div>
-					  <div class="col"><div class="BioMedalSilver">1</div></div>
-					  <div class="col"><div class="BioMedalBronze">2</div></div>
+					  <div class="col col-12"></div>
+					  <div class="col col-25"><div class="BioMedalGold">1</div></div>
+					  <div class="col col-25"><div class="BioMedalSilver">1</div></div>
+					  <div class="col col-25"><div class="BioMedalBronze">2</div></div>
+					  <div class="col col-12"></div>
 					</div>
 					<p>{{athletes[$index + 1].description | cut : true : 100}}</p>
 				</div>

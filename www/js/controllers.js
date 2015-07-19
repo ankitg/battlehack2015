@@ -75,6 +75,10 @@ angular.module('starter.controllers', [])
       $scope.messages = [];
     }
 
+    $scope.getRandomnumber = function(lowerlimit, upperlimit) {
+      return Math.floor(Math.random() * upperlimit) + lowerlimit;
+    }
+
     if(API.me().merchant_id !== undefined) {
     var channel = pusher.subscribe(API.me().merchant_id);
       channel.bind('sponsor_event', function(data) {
