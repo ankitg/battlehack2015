@@ -1,13 +1,18 @@
 <ion-view view-title="Athletes">
   <ion-content>
-    <ion-list>
+  <div class="list card">
       <ion-item ng-repeat="athlete in athletes" ng-click="selectAthlete({{athlete}})">
-        <a class="item item-thumbnail-left" href="#/app/athletes/{{athlete.id}}">
-		  <img ng-src={{athlete.profile_pic}}>
-		  <h2>{{athlete.name}}</h2>
-		  <p>{{athlete.sport_type}}</p>
+      <div class="item item-body">
+    	<div class="item item-avatar">
+		    <img src=img/{{athlete.sport_type}}.png>
+		    <h2>{{athlete.name}}</h2>
+		    <p>{{athlete.sport_type}}</p>
+		</div>
+		<a href="#/app/athletes/{{athlete.id}}">
+		<img class="full-image" ng-src={{athlete.profile_pic}}>
 		</a>
+		</div>
       </ion-item>
-    </ion-list>
+  </div>
   </ion-content>
 </ion-view>
