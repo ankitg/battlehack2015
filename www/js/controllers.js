@@ -11,7 +11,7 @@ angular.module('starter.controllers', [])
 
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
+//    console.log('Doing login', $scope.loginData);
 
     API.authenticate($scope.loginData).then( function(auth) {
       $state.go('app.athletes');
@@ -57,7 +57,7 @@ angular.module('starter.controllers', [])
   // populate selected athlete is missing
   if( Object.keys(athleteService.getSelectedAthlete()).length === 0)
   {
-    var athlete = {"name":"GIRKE Nikola","description":"Competed in RS:X at Guadalajara 2011 Pan Am Games. Competed in RS:X at Athens 2004 Olympic Games. Competed in windsurfing at Beijing 2008 and London 2012 Olympic Games. Competed in RS:X at 2012 world sailing championship. Named Female Sailor of the Year by Canadian Yachting Associations in 2001, 2004, 2009 and 2012","provider":"local","email":"test5@test.com","hashedPassword":"UUL+0FLnO7hQ+NkjVOp8dJZ9r3Ar55M2d1hd0P4Vnky5iW7YkxpTP7aw4rBtMQieq2EQCek1aiQ1SkEF8suiIA==","salt":"P1gNojG3FORdlJqFR2wYYw==","user_type":"Athlete","profile_pic":"/img/GIRKE_Nikola.jpg","sport_type":"Sailing","merchant_id":"GIRKE_Nikola","feature_score":"100","_id":"55ab69190c788db02a694d57","__v":0,"campaigns":[],"media":[{"type":"youtube","url":"https://youtu.be/g3iPy9MgrVQ"},{"type":"image","url":"https://hitthewave.files.wordpress.com/2014/12/nikola-girke-posing.jpg?w=500&h=355"}],"events":[],"role":"user"};
+    var athlete = {"name":"GIRKE Nikola","description":"Competed in RS:X at Guadalajara 2011 Pan Am Games. Competed in RS:X at Athens 2004 Olympic Games. Competed in windsurfing at Beijing 2008 and London 2012 Olympic Games. Competed in RS:X at 2012 world sailing championship. Named Female Sailor of the Year by Canadian Yachting Associations in 2001, 2004, 2009 and 2012","provider":"local","email":"test5@test.com","hashedPassword":"UUL+0FLnO7hQ+NkjVOp8dJZ9r3Ar55M2d1hd0P4Vnky5iW7YkxpTP7aw4rBtMQieq2EQCek1aiQ1SkEF8suiIA==","salt":"P1gNojG3FORdlJqFR2wYYw==","user_type":"Athlete","profile_pic":"img/GIRKE_Nikola.jpg","sport_type":"Sailing","merchant_id":"GIRKE_Nikola","feature_score":"100","_id":"55ab69190c788db02a694d57","__v":0,"campaigns":[],"media":[{"type":"youtube","url":"https://youtu.be/g3iPy9MgrVQ"},{"type":"image","url":"https://hitthewave.files.wordpress.com/2014/12/nikola-girke-posing.jpg?w=500&h=355"}],"events":[],"role":"user"};
     athleteService.selectAthlete(athlete);
   }
 
