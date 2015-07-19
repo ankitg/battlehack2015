@@ -6,7 +6,9 @@
 		<div class="hero-copy">
 			<h1>{{athlete.name}}</h1>
 			<p>{{athlete.description}}</p>
-			<youtube-video video-url="athlete.media[0].url"></youtube-video>
+			<div class="embed-responsive embed-responsive-16by9">
+				<youtube-video video-url="athlete.media[0].url" class="embed-responsive-item"></youtube-video>
+			</div>
 		</div>
 	</div>
   </ion-content>
