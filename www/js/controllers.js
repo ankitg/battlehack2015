@@ -14,8 +14,9 @@ angular.module('starter.controllers', [])
   $scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
 
-    API.authenticate($scope.loginData);
-    $state.go('app.home');
+    API.authenticate($scope.loginData).then( function(auth) {
+      $state.go('app.athletes');
+    });
   };
 })
 
