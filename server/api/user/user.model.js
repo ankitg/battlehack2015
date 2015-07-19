@@ -26,9 +26,12 @@ var UserSchema = new Schema({
   sport_type: String,
   merchant_id: String,
   media: [Schema.Types.Mixed],
-  campaigns: [Schema.Types.ObjectId],
+  campaigns: [Schema.Types.Mixed],
   feature_score: String,
-  logo: String
+  logo: String,
+  skus: [Schema.Types.Mixed],
+  lat: Number,
+  lng: Number
 });
 
 /**
