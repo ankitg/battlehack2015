@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "angular-youtube-mb": "~1.0.2",
-    "braintree-web": "~2.10.0"
+    "braintree-web": "~2.10.0",
+    "ionic-toast": "~0.1.1"
   }
 }

@@ -3,7 +3,9 @@ angular.module('starter.controllers', [])
 .controller('AppCtrl', function($scope, $ionicModal, API) {
 })
 
-.controller('LoginCtrl', function($scope, API, $state) {
+.controller('LoginCtrl', function($scope, API, $state, ionicToast) {
+
+  ionicToast.show('Hello KSo.', 'bottom', false, 2500);
 
   // Form data for the login modal
   $scope.loginData = {};
