@@ -52,10 +52,20 @@ angular.module('starter.controllers', [])
   };
 })
 
+.controller('BrowseCtrl', function($scope) {
+  $scope.images = [];
+
+    $scope.loadImages = function() {
+        for(var i = 0; i < 100; i++) {
+            $scope.images.push({id: i, src: "http://placehold.it/50x50"});
+        }
+    };
+})
+
 .controller('AthletesCtrl', function($scope, athleteService) {
   $scope.athletes = [
     { name: 'HONDERICH Rachel', id: 1, description: "Competed at 2014 Commonwealth Games. 2014 Pan Am badminton championships: first in teams, second in singles. Started playing badminton at age seven. Hopes to work as a chiropractor in the future", provider: "local", email:"",
-     userType:"Athlete", profile_pic: "/img/HONDERICH_Rachel.jpg", events:{}, sport_type:"Badminton", 
+     userType:"Athlete", profile_pic: "/img/HONDERICH_Rachel.jpg", events:{}, sport_type:"Badminton",
      media:[{type:"youtube", url:"https://www.youtube.com/embed/udTCUNDqKWI"}]},
 
     { name: 'VON MARTELS Christopher', id: 2, description: "Second at 2014 FEI Nations Cup in Wellington, United States. Von Martels and his family own Von Martels Dressage Inc. a provider of dressage horses for competitive riders", provider: "local", email:"" ,
@@ -81,7 +91,7 @@ angular.module('starter.controllers', [])
 
   $scope.selectAthlete = function(athlete) {
     athleteService.selectAthlete(athlete);
-  }
+  };
 })
 
 .controller('AthleteCtrl', function($scope, $stateParams, athleteService) {

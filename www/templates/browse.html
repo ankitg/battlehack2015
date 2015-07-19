@@ -1,5 +1,11 @@
 <ion-view view-title="Browse">
-  <ion-content>
-    <h1>Browse</h1>
-  </ion-content>
+	<ion-content ng-init="loadImages()">
+	    <div class="row responsive-md">
+	        <div class="col col-25" ng-repeat="image in images">
+	            <img ng-src="{{image.src}}" width="100%" />
+	        </div>
+	    </div>
+	</ion-content>
 </ion-view>
+
+
