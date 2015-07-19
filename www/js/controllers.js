@@ -96,4 +96,7 @@ angular.module('starter.controllers', [])
 
 .controller('AthleteCtrl', function($scope, $stateParams, athleteService) {
   $scope.athlete = athleteService.getSelectedAthlete();
+  $scope.pitchin = function(amount) {
+    console.log("You just pitched in " + amount);
+  };
 });

@@ -6,6 +6,12 @@
 		<div class="hero-copy">
 			<h1>{{athlete.name}}</h1>
 			<p>{{athlete.description}}</p>
+			<label class="item item-input">
+			  <input type="text" placeholder="AMOUNT" ng-model="amount">
+			</label>
+			<button class="button button-block button-positive" ng-click="pitchin(amount)">
+			  PITCHIN'
+			</button>
 			<div class="embed-responsive embed-responsive-16by9">
 				<youtube-video video-url="athlete.media[0].url" class="embed-responsive-item"></youtube-video>
 			</div>
