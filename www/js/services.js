@@ -32,7 +32,22 @@ angular.module('services', [])
 			$http({
 		        method: 'GET',
 		        url: baseurl + '/api/users/athletes',
-		        cache: true
+		        cache: false
+		    }).success(function (data) {
+		        deferred.resolve(data);
+		    }).error(function (msg) {
+		        deferred.reject(msg);
+		    });
+
+			return deferred.promise;
+		},
+
+		getMerchantData: function(merchantId) {
+			var deferred = $q.defer();
+			$http({
+		        method: 'GET',
+		        url: baseurl + '/api/payments/athleteMerchantId/' + merchantId,
+		        cache: false
 		    }).success(function (data) {
 		        deferred.resolve(data);
 		    }).error(function (msg) {

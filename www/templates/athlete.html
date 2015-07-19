@@ -23,5 +23,9 @@
 				<youtube-video video-url="athlete.media[0].url" class="embed-responsive-item"></youtube-video>
 			</div>
 		</div>
+
+		<div ng-repeat="sponsor in sponsors">
+			<img ng-src="{{sponsor.logo}}"/>
+		</div>
   </ion-content>
 </ion-view>
