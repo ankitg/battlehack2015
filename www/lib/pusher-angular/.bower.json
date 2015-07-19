@@ -1,0 +1,41 @@
+{
+  "name": "pusher-angular",
+  "main": "lib/pusher-angular.js",
+  "version": "0.1.5",
+  "homepage": "https://github.com/pusher/pusher-angular",
+  "authors": [
+    "Hamilton Chapman <hamilton@pusher.com>"
+  ],
+  "description": "The official Pusher Angular library",
+  "keywords": [
+    "angular",
+    "angularjs",
+    "pusher",
+    "realtime",
+    "websocket"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "tests",
+    "karma.conf.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "devDependencies": {
+    "angular-mocks": "latest"
+  },
+  "dependencies": {
+    "angular": "latest"
+  },
+  "_release": "0.1.5",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.1.5",
+    "commit": "e9908b70957e07f3c23b56e36fa3f1bae6383dab"
+  },
+  "_source": "git://github.com/pusher/pusher-angular.git",
+  "_target": "~0.1.5",
+  "_originalSource": "pusher-angular",
+  "_direct": true
+}
