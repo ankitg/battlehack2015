@@ -31,6 +31,41 @@ angular.module('starter.controllers', [])
   $scope.totalSponsored = sum;
 })
 
+.controller('MapCtrl', function(athletes, $scope, $ionicLoading) {
+  $scope.mapCreated = function(map) {
+    $scope.map = map;
+
+    athletes.forEach(function(athlete) {
+      var marker = new google.maps.Marker({
+        position: {lat: athlete.lat, lng: athlete.lng},
+        map: map
+      });
+    });
+  };
+
+  $scope.centerOnMe = function () {
+    console.log("Centering");
+    if (!$scope.map) {
+      return;
+    }
+
+    $scope.loading = $ionicLoading.show({
+      content: 'Getting current location...',
+      showBackdrop: false
+    });
+
+    navigator.geolocation.getCurrentPosition(function (pos) {
+      console.log('Got pos', pos);
+      $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+      $scope.map.setZoom(9);
+      $scope.athletes = athletes;
+      $scope.loading.hide();
+    }, function (error) {
+      alert('Unable to get location: ' + error.message);
+    });
+  };
+})
+
 .controller('AthletesCtrl', function(athletes, $scope, athleteService, $pusher, API, ionicToast) {
   $scope.athletes = athletes;
 
@@ -45,7 +80,7 @@ angular.module('starter.controllers', [])
       channel.bind('sponsor_event', function(data) {
         console.log(data.message);
         // $scope.messages.push(data.message);
-        ionicToast.show(data.message, 'bottom', false, 2500);
+        ionicToast.show(data.message, 'top', false, 10000);
       });
     }
 

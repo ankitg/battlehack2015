@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 
-angular.module('starter', ['ionic', 'starter.controllers', 'services', 'youtube-embed','pusher-angular','ionic-toast'])
+angular.module('starter', ['ionic', 'starter.controllers', 'services', 'youtube-embed','pusher-angular','ionic-toast', 'starter.directives'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -73,7 +73,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'services', 'youtube-
     url: '/search',
     views: {
       'menuContent': {
-        templateUrl: 'templates/search.html'
+        templateUrl: 'templates/search.html',
+        controller: 'MapCtrl',
+        resolve: {
+            athletes: function(API) {
+              return API.getAthletes();
+            }
+          }
       }
     }
   })

@@ -45,3 +45,12 @@
 	padding-top: 8px;
 	text-shadow: 0 0 0.2em #FFF,  0 0 0.3em #FFF,  0 0 0.2em #FFF;
 }
+
+map {
+  display: block;
+  width: 100%;
+  height: 50%;
+}
+.scroll {
+  height: 50%;
+}
