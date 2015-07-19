@@ -1,5 +1,14 @@
+<div class="hero">
 <ion-view view-title="Athlete">
   <ion-content>
-    <h1>{{athlete.title}}</h1>
+	<div class="hero-inner">
+		<img ng-src={{athlete.profile_pic}} alt="Logo Image">
+		<div class="hero-copy">
+			<h1>{{athlete.name}}</h1>
+			<p>{{athlete.media[0].url}}</p>	
+			<iframe width="560" height="315" ng-src="{{athlete.media[0].url}}" frameborder="0" allowfullscreen></iframe>
+		</div>
+	</div>
   </ion-content>
 </ion-view>
+</div>

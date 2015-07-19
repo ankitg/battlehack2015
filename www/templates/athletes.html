@@ -3,9 +3,9 @@
     <ion-list>
       <ion-item ng-repeat="athlete in athletes" ng-click="selectAthlete({{athlete}})">
         <a class="item item-thumbnail-left" href="#/app/athletes/{{athlete.id}}">
-		  <img src="img/ionic.png">
-		  <h2>{{athlete.title}}</h2>
-		  <p>{{athlete.city}}</p>
+		  <img ng-src={{athlete.profile_pic}}>
+		  <h2>{{athlete.name}}</h2>
+		  <p>{{athlete.sport_type}}</p>
 		</a>
       </ion-item>
     </ion-list>
