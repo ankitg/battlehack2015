@@ -24,7 +24,12 @@
 		 <div class="padding">
 			 <img ng-src={{athlete.profile_pic}} alt="Profile Image" style="float:left; padding-right:10px; padding-bottom:10px"}}>
 			 <p>{{athlete.description}}</p>
-
+			 <div class="row">
+				<div class="col"></div>
+				<div class="col"><div class="BioMedalGold">1</div></div>
+				<div class="col"><div class="BioMedalSilver">1</div></div>
+				<div class="col"><div class="BioMedalBronze">2</div></div>
+			  </div>
 		  	<div class="embed-responsive embed-responsive-16by9 row">
 				<youtube-video video-url="athlete.media[0].url" class="embed-responsive-item"></youtube-video>
 			</div>
