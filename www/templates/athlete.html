@@ -1,11 +1,18 @@
-<div class="hero">
 <ion-view view-title="Athlete">
   <ion-content>
-	<div class="hero-inner">
-		<img ng-src={{athlete.profile_pic}} alt="Logo Image">
+		<div class="item item-avatar">
+		    <img src=img/{{athlete.sport_type}}.png>
+		    <p>{{athlete.sport_type}}</p>
+		</div>
+		<div class="row">
+		  <div class="col col-center"><h1>{{athlete.name}}</h1></div>
+		  <div class="col col-50"><img ng-src={{athlete.profile_pic}} alt="Logo Image"}}></div>
+		</div>
+		<div class="row" >
+			 <div class="col col-top">{{athlete.description}}</div>
+		</div>
+		
 		<div class="hero-copy">
-			<h1>{{athlete.name}}</h1>
-			<p>{{athlete.description}}</p>
 			<label class="item item-input">
 			  <input type="text" placeholder="AMOUNT" ng-model="amount">
 			</label>
@@ -16,7 +23,5 @@
 				<youtube-video video-url="athlete.media[0].url" class="embed-responsive-item"></youtube-video>
 			</div>
 		</div>
-	</div>
   </ion-content>
 </ion-view>
-</div>
