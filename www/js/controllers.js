@@ -73,14 +73,18 @@ angular.module('starter.controllers', [])
 .controller('AthleteCtrl', function($scope, $stateParams, athleteService, $state) {
   $scope.athlete = athleteService.getSelectedAthlete();
   $scope.pitchin = function(amount) {
-    $state.go("app.payments");
-
     console.log("You just pitched in " + amount);
+    $state.go("app.payments", {amount:amount});    
   };
 })
 
-.controller('PaymentCtrl', function($scope, $stateParams, athleteService, $state, $http) {
-  
+.controller('PaymentCtrl', function($scope, $stateParams, API, athleteService, $state, $ionicHistory, $http) {
+  var athlete = athleteService.getSelectedAthlete(); console.log(athlete);
+  var me = API.me();
+  var amount = $stateParams.amount; console.log(amount);
+
+  $scope.athlete = athlete;
+  $scope.amount = amount;
   
   $http.get('http://5fe31957.ngrok.com/api/payments/token').success(function(data, status, headers, config) {
       console.log(typeof(data));
@@ -90,18 +94,23 @@ angular.module('starter.controllers', [])
           token, 
           "dropin",
           {
-              container: "payment-form",              
+            container: "payment-form",              
             paymentMethodNonceReceived: function (event, nonce) {
               var payment = {
-                sponsor: '55aad23932ccc99834bb902f',
-                athlete: '55aad23a32ccc99834bb9031',
+                sponsor: me._id,
+                athlete: athlete._id,
                 status: 'requested',
-                merchant_id: 'GIRKE_Nikola',
+                merchant_id: athlete.merchant_id,
                 payment_method_nonce: nonce,                
-                amount: 100
+                amount: amount
               };
               console.log(payment);
-              $http.post('http://5fe31957.ngrok.com/api/payments/', payment);
+              $http.post('http://5fe31957.ngrok.com/api/payments/', payment).success(function(data){
+                console.log(data);
+                if(data.status === 'processed') {
+                  $ionicHistory.goBack();
+                }
+              });
             }
           }
         );

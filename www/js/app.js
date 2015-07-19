@@ -90,7 +90,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'services', 'youtube-
     }
   })
   .state('app.payments', {
-    url: '/payments/:athleteId/:amount',
+    url: '/payments/:amount',
     views: {
       'menuContent': {
         templateUrl: 'templates/payments.html',
