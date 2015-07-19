@@ -22,6 +22,26 @@ angular.module('starter', ['ionic', 'starter.controllers', 'services', 'youtube-
   });
 })
 
+.filter('cut', function () {
+        return function (value, wordwise, max, tail) {
+            if (!value) return '';
+
+            max = parseInt(max, 10);
+            if (!max) return value;
+            if (value.length <= max) return value;
+
+            value = value.substr(0, max);
+            if (wordwise) {
+                var lastspace = value.lastIndexOf(' ');
+                if (lastspace != -1) {
+                    value = value.substr(0, lastspace);
+                }
+            }
+
+            return value + (tail || ' …');
+        };
+    })
+
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
@@ -60,8 +80,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'services', 'youtube-
       url: '/browse',
       views: {
         'menuContent': {
-          templateUrl: 'templates/browse.html',
-          controller: 'BrowseCtrl'
+          templateUrl: 'templates/browse.html'
         }
       }
     })

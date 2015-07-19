@@ -1,21 +1,58 @@
 <ion-view view-title="Athletes">
   <ion-content>
-  <div class="list card">
-      <ion-item ng-repeat="athlete in athletes" ng-click="selectAthlete({{athlete}})">
-      <div class="item item-body">
-    	<div class="item item-avatar">
-		    <img src=img/{{athlete.sport_type}}.png>
-		    <h2>{{athlete.name}}</h2>
-		    <p>{{athlete.sport_type}}</p>
-		</div>
-		<a href="#/app/athletes/{{athlete.id}}">
-		<img class="full-image" ng-src={{athlete.profile_pic}}>
-		</a>
-		<div class="row row-center">
-			<div class="col"><div class= "BioMedalGold">2</div><br><div class= "BioMedalSilver">2</div><br><div class= "BioMedalBronze">1</div></div>
-		  <div class="col col-75"><h2>Best Player of the Year!</h2></div>
-		</div>
-      </ion-item>
-  </div>
+ 		<div class="row responsive-lg ion-list">
+
+	      <div class="col col-80 col-offset-10">
+			<div class="row responsive-md" ng-repeat="athlete in athletes" ng-if="$index % 2 === 0" ng-click="selectAthlete({{athlete}})">
+
+	          <div class="col col-50 list card">
+	            <ion-item class="item item-avatar item-icon-right">
+				    <img ng-src="{{athlete.profile_pic}}" width="100%">
+				    <h2>{{athlete.name}}</h2>
+				    <p>{{athlete.sport_type}}</p>
+				    <img ng-src="img/{{athlete.sport_type}}.png" class="icon">
+				</ion-item>
+
+				<div class="item item-body">
+					<img ng-src="{{athlete.media[1].url}}" width="100%" />
+					<p>{{athlete.description | cut : true : 100}}</p>
+				</div>
+
+				<a href="#/app/athletes/{{athlete.id}}" style="text-decoration:none">
+					<button class="button button-block button-positive">
+				  		PITCHIN'
+					</button>
+				</a>
+	          </div>
+
+	          <div class="col col-50" ng-show="athletes[$index + 1]">
+				<ion-item class="item item-avatar item-icon-right">
+				    <img ng-src="{{athletes[$index + 1].profile_pic}}" width="100%">
+				    <h2>{{athletes[$index + 1].name}}</h2>
+				    <p>{{athletes[$index + 1].sport_type}}</p>
+				    <img ng-src="img/{{athletes[$index + 1].sport_type}}.png" class="icon">
+				</ion-item>
+
+				<div class="item item-body">
+					<img ng-src="{{athletes[$index + 1].media[1].url}}" width="100%" />
+					<p>{{athletes[$index + 1].description | cut : true : 100}}</p>
+					<a href="#/app/athletes/{{athletes[$index + 1].id}}" style="text-decoration:none">
+					<button class="button button-block button-positive">
+				  		PITCHIN'
+					</button>
+				</a>
+				</div>
+	          </div>
+
+	        </div>
+	      </div>
+
+	    </div>
+
+
+
+
+
+
   </ion-content>
 </ion-view>
