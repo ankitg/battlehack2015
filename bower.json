@@ -5,6 +5,7 @@
     "ionic": "driftyco/ionic-bower#1.0.1"
   },
   "dependencies": {
-    "angular-youtube-mb": "~1.0.2"
+    "angular-youtube-mb": "~1.0.2",
+    "braintree-web": "~2.10.0"
   }
 }

@@ -88,6 +88,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'services', 'youtube-
         controller: 'AthleteCtrl'
       }
     }
+  })
+  .state('app.payments', {
+    url: '/payments/:athleteId/:amount',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/payments.html',
+        controller: 'PaymentCtrl'
+      }
+    }
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');
