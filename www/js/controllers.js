@@ -21,11 +21,18 @@ angular.module('starter.controllers', [])
 
 .controller('HomeCtrl', function($scope, API) {
   $scope.me = API.me();
+
+  var sum = 0;
+  for(var i=0; i<$scope.me.campaigns.length; i++) {
+    sum += parseInt($scope.me.campaigns[i].amount);
+    console.log($scope.me.campaigns[i].amount);
+  }
+
+  $scope.totalSponsored = sum;
 })
 
 .controller('AthletesCtrl', function(athletes, $scope, athleteService, $pusher, API, ionicToast) {
   $scope.athletes = athletes;
-
 
     var client = new Pusher('2b63159ac74d5e9407db');
     var pusher = $pusher(client);

@@ -1,8 +1,17 @@
 <ion-view view-title="{{me.name}}">
   <ion-content>
-  	<p>{{me}}</p>
-    <img ng-src="{{me.logo}}"/>
-    <div ng-repeat="campaign in me.campaigns">
+
+    <img ng-src="{{me.logo}}" class="full-image"/>
+    
+    <h2 class="padding">Sponsored ${{totalSponsored | number:2}}</h2>
+	<div class="list" ng-repeat="campaign in me.campaigns">
+		<a class="item item-thumbnail-left" href="#">
+	      <img ng-src="{{campaign.profile_pic}}">
+	      <h2>${{campaign.amount | number:2}} @ {{campaign.name}}</h2>
+	      <p>{{campaign.date}}</p>
+	    </a>
     </div>
+
+    <p>{{me}}</p>
   </ion-content>
 </ion-view>
