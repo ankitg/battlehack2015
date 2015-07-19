@@ -1,10 +1,10 @@
 <ion-view view-title="Athletes">
   <ion-content>  	
-  	<h1>Confirm Payment</h1>
-  	<h2>You are going to sponsor {{athlete.name}} for ${{amount | number:2}}</h2>
+  	<h1 class="padding">Confirm Payment</h1>
+  	<h2 class="padding">You are going to sponsor {{athlete.name}} for ${{amount | number:2}}</h2>
   	<form id='checkout' method='post' action='/api/payments'>
   		<div id="payment-form"></div>
-  		<input type="submit" value="Confirm"/>
+  		<input class="button button-block button-positive" type="submit" value="Confirm"/>
   	</form>
   </ion-content>
 </ion-view>
